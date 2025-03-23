@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Khushi Agarwal</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm Khushi Agarwal</h1>
+            <p class="subtitle">Computer Science & Engineering Student</p>
+            <p class="typing-text">I'm a <span class="typed-text"></span></p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3><span class="counter" data-target="8.5">0.0</span><span class="plus">+</span></h3>
+                    <p>CGPA</p>
+                </div>
+                <div class="stat-item">
+                    <h3><span class="counter" data-target="150">0</span><span class="plus">+</span></h3>
+                    <p>DSA Problems</p>
+                </div>
+                <div class="stat-item">
+                    <h3><span class="counter" data-target="4">0</span><span class="plus">+</span></h3>
+                    <p>Projects</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/agkhushi" target="_blank" title="GitHub Profile">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/khushi-agarwal-25093b251" target="_blank" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://leetcode.com/u/user212003/" target="_blank" title="LeetCode Profile">
+                    <i class="fas fa-code"></i>
+                </a>
+            </div>
+            
+            <a href="#contact" class="cta-btn btn">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="photo-modified.png" alt="Khushi Agarwal">
+            </div>
+            <div class="about-text">
+                <p>I am a passionate and dedicated software developer with a strong foundation in computer science and a keen interest in creating innovative solutions.With an ongoing Bachelor's degree in Computer Science and Engineering from VIT Bhopal University , I have developed expertise in various programming languages and technologies.</p>
+                <p>My journey in software development has been driven by a continuous desire to learn and grow. I specialize in frontend development and data analysis with particular focus on creating efficient and scalable applications. My experience includes working with modern web technologies, databases, and cloud platforms.</p>
+                <p>I have focused my interests on software developers, web development, data structure, and algorithm projects. I have worked with C++, Java, JavaScript, Python, SQL, and Power BI data visualization tool.</p>
+                <p>My career aspirations are aligned with the commitment of technological tools for impactful solutions and furthering my learning and progress in software development and data science.</p>
+                <p>I believe in writing clean, maintainable code and following best practices in software development. I am always eager to take on new challenges and contribute to meaningful projects that make a difference.</p>
+                <a href="https://docs.google.com/document/d/1w82AUyIssZlLKDV7LHOcB84wOIqNHY67mWZSXVk69Vo/edit?usp=sharing" class="btn" target="_blank">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project cards will be added dynamically with JavaScript -->
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <p>HTML5</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <p>CSS3</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <p>JavaScript</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <p>Python</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-java"></i>
+                        <p>Java</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code"></i>
+                        <p>C++</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Data Science</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Data Analysis</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>Data Visualization</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <p>Power BI</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Computer Science</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <p>Data Structures</p>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-code-branch"></i>
+                        <p>Algorithms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-container">
+            <form id="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; Khushi Agarwal. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 
