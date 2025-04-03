@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const projects = [
         {
             title: "Task Management App",
-            description: "A dynamic task management application with real-time updates and progress tracking. Features include task prioritization, deadline management, and performance analytics.",
+            description: "A dynamic task management application with real-time updates and progress tracking.Features include task prioritization, deadline management.",
             image: "task-management.png",
             technologies: ["React", "Node.js", "Socket.io"],
             githubLink: "https://github.com/yourusername/task-manager",
