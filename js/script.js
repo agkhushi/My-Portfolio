@@ -184,47 +184,154 @@ document.addEventListener("DOMContentLoaded", () => {
     // Project Cards Data
     const projects = [
         {
-            title: "Project 1",
-            description: "A brief description of project 1",
-            image: "assets/project1.jpg",
-            technologies: ["HTML", "CSS", "JavaScript"],
-            link: "#"
+            title: "Task Management App",
+            description: "A dynamic task management application with real-time updates and progress tracking. Features include task prioritization, deadline management, and performance analytics.",
+            image: "task-management.png",
+            technologies: ["React", "Node.js", "Socket.io"],
+            githubLink: "https://github.com/yourusername/task-manager",
+            liveLink: "https://yourusername.github.io/task-manager"
         },
         {
-            title: "Project 2",
-            description: "A brief description of project 2",
-            image: "assets/project2.jpg",
-            technologies: ["React", "Node.js", "MongoDB"],
-            link: "#"
+            title: "Expense Tracker",
+            description: "A streamlined expense management app with budget planning, expense categorization, and interactive charts for financial insights.",
+            image: "expense.png",
+            technologies: ["HTML", "CSS", "JavaScript", "Chart.js"],
+            githubLink: "https://github.com/yourusername/expense-tracker",
+            liveLink: "https://yourusername.github.io/expense-tracker"
         },
         {
-            title: "Project 3",
-            description: "A brief description of project 3",
-            image: "assets/project3.jpg",
-            technologies: ["Vue.js", "Express", "PostgreSQL"],
-            link: "#"
+            title: "DSA Problem Solver",
+            description: "A collection of solved Data Structures and Algorithms problems with detailed explanations and optimizations.",
+            image: "dsa.jpg",
+            technologies: ["C++", "Java", "Data Structures", "Algorithms"],
+            githubLink: "#",
+            liveLink: "#"
         }
     ];
 
-    // Populate Projects
+    // Populate Projects with Carousel Effect
     const projectsGrid = document.querySelector('.projects-grid');
-
-    projects.forEach(project => {
+    let currentProjectIndex = 0;
+    
+    // Create project cards
+    projects.forEach((project, index) => {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
+        projectCard.dataset.index = index;
         
         projectCard.innerHTML = `
-            <img src="${project.image}" alt="${project.title}">
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="technologies">
-                ${project.technologies.map(tech => `<span>${tech}</span>`).join('')}
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.title}">
             </div>
-            <a href="${project.link}" class="btn">View Project</a>
+            <div class="project-content">
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="technologies">
+                    ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                </div>
+                <div class="project-links">
+                    <a href="${project.githubLink}" class="btn github-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="${project.liveLink}" class="btn live-btn" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
         `;
         
         projectsGrid.appendChild(projectCard);
     });
+    
+    // Add navigation buttons
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'carousel-btn prev-btn';
+    prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'carousel-btn next-btn';
+    nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    
+    projectsGrid.parentElement.appendChild(prevBtn);
+    projectsGrid.parentElement.appendChild(nextBtn);
+    
+    // Add navigation dots
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'carousel-dots';
+    
+    projects.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.className = 'carousel-dot';
+        dot.dataset.index = index;
+        dotsContainer.appendChild(dot);
+    });
+    
+    projectsGrid.parentElement.appendChild(dotsContainer);
+    
+    // Initialize carousel
+    function initCarousel() {
+        const projectCards = document.querySelectorAll('.project-card');
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        // Set initial state
+        updateCarousel();
+        
+        // Add event listeners
+        prevBtn.addEventListener('click', () => {
+            currentProjectIndex = (currentProjectIndex - 1 + projects.length) % projects.length;
+            updateCarousel();
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+            updateCarousel();
+        });
+        
+        // Add dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentProjectIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // Auto-rotate every 5 seconds
+        setInterval(() => {
+            currentProjectIndex = (currentProjectIndex + 1) % projects.length;
+            updateCarousel();
+        }, 5000);
+    }
+    
+    function updateCarousel() {
+        const projectCards = document.querySelectorAll('.project-card');
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        // Update active card and prev/next cards
+        projectCards.forEach((card, index) => {
+            // Remove all classes first
+            card.classList.remove('active', 'prev', 'next');
+            
+            if (index === currentProjectIndex) {
+                card.classList.add('active');
+            } else if (index === (currentProjectIndex - 1 + projects.length) % projects.length) {
+                card.classList.add('prev');
+            } else if (index === (currentProjectIndex + 1) % projects.length) {
+                card.classList.add('next');
+            }
+        });
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+            if (index === currentProjectIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Initialize carousel after DOM is loaded
+    initCarousel();
 
     // Form Submission
     const contactForm = document.getElementById('contact-form');
