@@ -89,4 +89,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - GitHub: https://github.com/agkhushi
 
 ---
-© 2024 Khushi Agarwal. All rights reserved.
+© 2025 Khushi Agarwal. All rights reserved.
